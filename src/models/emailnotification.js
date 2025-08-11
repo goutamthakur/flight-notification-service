@@ -40,6 +40,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: "EmailNotification",
+      tableName: "email_notifications",
     }
   );
   return EmailNotification;

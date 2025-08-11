@@ -26,7 +26,7 @@ async function sendMail(mailFrom, mailTo, subject, text) {
 
 async function createEmailNoti(data) {
   try {
-    const response = await emailNotiRepository.create({ data });
+    const response = await emailNotiRepository.create(data);
     return response;
   } catch (error) {
     throw new AppError(
