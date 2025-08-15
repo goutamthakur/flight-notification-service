@@ -1,0 +1,55 @@
+<div
+  style="
+    font-family: Arial, sans-serif;
+    color: #333;
+    max-width: 600px;
+    width: 100%;
+    margin: auto;
+    box-sizing: border-box;
+  "
+>
+  <h2 style="color: #2e86c1; font-size: 20px">Booking Confirmation</h2>
+  <p style="font-size: 14px">
+    Your booking has been successfully confirmed. Here are the details:
+  </p>
+
+  <table
+    style="
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 10px;
+      font-size: 14px;
+    "
+  >
+    <tr>
+      <td style="padding: 8px; border: 1px solid #ddd; width: 40%">
+        <strong>Flight</strong>
+      </td>
+      <td style="padding: 8px; border: 1px solid #ddd">{{flightNumber}}</td>
+    </tr>
+    <tr>
+      <td style="padding: 8px; border: 1px solid #ddd">
+        <strong>Route</strong>
+      </td>
+      <td style="padding: 8px; border: 1px solid #ddd">
+        {{departureAirport}} &rarr; {{arrivalAirport}}
+      </td>
+    </tr>
+    <tr>
+      <td style="padding: 8px; border: 1px solid #ddd">
+        <strong>Seats Booked</strong>
+      </td>
+      <td style="padding: 8px; border: 1px solid #ddd">{{seatsBooked}}</td>
+    </tr>
+    <tr>
+      <td style="padding: 8px; border: 1px solid #ddd">
+        <strong>Amount Paid</strong>
+      </td>
+      <td style="padding: 8px; border: 1px solid #ddd">₹{{totalCost}}</td>
+    </tr>
+  </table>
+
+  <p style="margin-top: 20px; font-size: 14px">
+    Thank you for choosing us. We wish you a happy journey!
+  </p>
+</div>

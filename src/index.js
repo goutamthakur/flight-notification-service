@@ -1,6 +1,6 @@
 const express = require("express");
 
-const { ServerConfig } = require("./config");
+const { ServerConfig, MQ } = require("./config");
 const apiRoutes = require("./routes");
 
 const app = express();
@@ -19,4 +19,5 @@ app.listen(ServerConfig.PORT, () => {
   console.log(
     `Successfully started the flight-notification-service on PORT: ${ServerConfig.PORT}`
   );
+  MQ.connectToRabbitMQ();
 });

@@ -10,4 +10,7 @@ module.exports = {
   DB_HOST: process.env.DB_HOST,
   GMAIL_EMAIL: process.env.GMAIL_EMAIL,
   GMAIL_PASS: process.env.GMAIL_PASS,
+  MQ_URL: process.env.MQ_URL,
+  FLIGHT_SERVICE_URL: process.env.FLIGHT_SERVICE_URL,
+  TEMP_EMAIL: process.env.TEMP_EMAIL,
 };
