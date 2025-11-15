@@ -9,10 +9,18 @@ async function emailSubscriber() {
     // Keep the queues durable to survive broker restarts
     await channel.assertQueue(queue.BOOKING_CREATED, { durable: true });
     await channel.assertQueue(queue.USER_REGISTER, { durable: true });
-    
+
     channel.consume(queue.BOOKING_CREATED, async (data) => {
       const parsedData = JSON.parse(Buffer.from(data.content).toString());
       const result = await EmailService.sendBookingConfirmationMail(parsedData);
+      if (result) {
+        channel.ack(data);
+      }
+    });
+
+    channel.consume(queue.USER_REGISTER, async (data) => {
+      const parsedData = JSON.parse(Buffer.from(data.content).toString());
+      const result = await EmailService.sendRegisterOtpMail(parsedData);
       if (result) {
         channel.ack(data);
       }

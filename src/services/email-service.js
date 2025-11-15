@@ -87,9 +87,27 @@ async function sendBookingConfirmationMail(data) {
   }
 }
 
+async function sendRegisterOtpMail(data) {
+  try {
+    const templatePath = path.join(__dirname, "../templates/registerOtp.html");
+
+    let registerTemplate = await fs.promises.readFile(templatePath, "utf-8");
+
+    registerTemplate = registerTemplate.replace("{{otp}}", data?.otp);
+
+    await sendMail(
+      ServerConfig.GMAIL_EMAIL,
+      ServerConfig.TEMP_EMAIL,
+      `OTP verification`,
+      bookingTemplate
+    );
+  } catch (error) {}
+}
+
 module.exports = {
   sendMail,
   createEmailNoti,
   getPendingEmails,
   sendBookingConfirmationMail,
+  sendRegisterOtpMail,
 };
