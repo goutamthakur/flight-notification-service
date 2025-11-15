@@ -99,9 +99,13 @@ async function sendRegisterOtpMail(data) {
       ServerConfig.GMAIL_EMAIL,
       ServerConfig.TEMP_EMAIL,
       `OTP verification`,
-      bookingTemplate
+      registerTemplate
     );
-  } catch (error) {}
+    return true;
+  } catch (error) {
+    console.log("Error sending booking confirmation mail", error);
+    return false;
+  }
 }
 
 module.exports = {
