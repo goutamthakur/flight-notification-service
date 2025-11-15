@@ -1,9 +1,9 @@
-# 💺 Flight Notification Microservice
+# Flight Notification Microservice
 
 This repository contains the Flight Notification Service, which is part of a larger flight booking system.
 The service is responsible for sending notifications to users — currently, only email notifications are implemented.
 
-## 📁 Project Structure
+## Project Structure
 
 - `config` -> This folder has all the configuration like logging config etc
 
@@ -19,11 +19,11 @@ The service is responsible for sending notifications to users — currently, onl
 
 - `utils` -> This folder contains the helper methods, error classess etc for our project.
 
-## 🔐 Environment Configuration
+## Environment Configuration
 
 The `.env.example` file serves as a template for required environment variables. Copy it and paste to `.env`, then fill in the actual values.
 
-## 🛠️ Setup Instructions
+## Setup Instructions
 
 1. Install Dependencies `npm install`
 

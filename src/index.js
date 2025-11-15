@@ -1,7 +1,8 @@
 const express = require("express");
 
-const { ServerConfig, MQ } = require("./config");
+const { ServerConfig } = require("./config");
 const apiRoutes = require("./routes");
+const { initializeEventSubscribers } = require("./events");
 
 const app = express();
 
@@ -15,9 +16,7 @@ app.use("/health", (req, res) => {
   res.send("OK");
 });
 
-app.listen(ServerConfig.PORT, () => {
-  console.log(
-    `Successfully started the flight-notification-service on PORT: ${ServerConfig.PORT}`
-  );
-  MQ.connectToRabbitMQ();
+app.listen(ServerConfig.PORT, async () => {
+  console.log(`Successfully started the flight-notification-service on PORT: ${ServerConfig.PORT}`);
+  await initializeEventSubscribers();
 });
